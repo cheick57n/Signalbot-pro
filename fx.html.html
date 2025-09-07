@@ -1,0 +1,182 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hassim Académie FX</title>
+  <style>
+    /* CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin-top: 5px;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+      color: #444;
+    }
+
+    .formation {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .formation:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .formation h3 {
+      margin-top: 0;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 10px auto;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .bonus {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .bonus button {
+      background-color: #28a745;
+    }
+
+    .bonus button:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 15px 0;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML -->
+  <header>
+    <h1>Hassim Académie FX - Formation Trading</h1>
+    <p>Apprenez le trading et devenez un expert avec nos formations spécialisées</p>
+  </header>
+
+  <section>
+    <h2>Nos Formations</h2>
+
+    <div class="formation">
+      <h3>Cours Débutant : Comprendre les Bases du Trading</h3>
+      <p>Ce cours couvre les notions fondamentales du trading. Idéal pour les débutants.</p>
+      <p><strong>Prix : 10 000 CFA</strong></p>
+      <button onclick="inscription(10000)">S'inscrire</button>
+    </div>
+
+    <div class="formation">
+      <h3>Cours Intermédiaire : Stratégies de Trading</h3>
+      <p>Perfectionnez vos compétences avec des stratégies plus avancées.</p>
+      <p><strong>Prix : 35 000 CFA</strong></p>
+      <button onclick="inscription(35000)">S'inscrire</button>
+    </div>
+
+    <div class="formation">
+      <h3>Cours Avancé : Analyse Technique et Psychologie</h3>
+      <p>Devenez un expert avec des outils d'analyse avancés et maîtrisez la psychologie du trader.</p>
+      <p><strong>Prix : 50 000 CFA</strong></p>
+      <button onclick="inscription(50000)">S'inscrire</button>
+    </div>
+
+    <!-- Bonus avec JustMarket -->
+    <div class="bonus">
+      <h2>Profitez de 50% de Bonus</h2>
+      <p>Inscrivez-vous avec le meilleur broker et recevez 50% de bonus sur vos dépôts.</p>
+      <button onclick="window.open('https://one.justmarkets.link/a/39bgk0w78i', '_blank')">
+        Inscris-toi maintenant
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 Hassim Académie FX | Contactez-nous : <a href="mailto:support@hassimfx.com">support@hassimfx.com</a></p>
+  </footer>
+
+  <script>
+    // JavaScript
+    function inscription(prix) {
+      const numero = "57202363"; // Numéro pour Mobile Money
+      const code = `*144*2*1*${numero}*${prix}#`;
+
+      const confirmation = confirm(
+        `Pour accéder à ce cours, effectuez votre paiement de ${prix} CFA via Mobile Money.\n\nComposez ce code sur votre téléphone : ${code}`
+      );
+
+      if (confirmation) {
+        const whatsappConfirmation = confirm(
+          `Après votre paiement, veuillez envoyer "Paiement" au ${numero} sur WhatsApp pour valider votre inscription.\n\nVoulez-vous ouvrir WhatsApp maintenant ?`
+        );
+
+        if (whatsappConfirmation) {
+          const whatsappURL = `https://wa.me/226${numero}?text=Paiement`;
+          window.open(whatsappURL, "_blank");
+        } else {
+          alert("Merci de nous contacter par WhatsApp après votre paiement.");
+        }
+      }
+    }
+  </script>
+</body>
+</html>
